@@ -1,6 +1,6 @@
 'use strict'
 
-import Foo from '../scripts/foo'
+import Foo from '../src/foo'
 
 describe('node and browser', () => {
   it('should test in both node and the browser', async () => {

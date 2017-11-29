@@ -2,7 +2,7 @@
 
 import './chai'
 import './node-and-browser'
-import Foo from '../scripts/foo'
+import Foo from '../src/foo'
 
 describe('node', () => {
   it('should test only in node', async () => {
