@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
 class Foo {
-  constructor() {
-    this._thing = 'yar';
+  constructor () {
+    this._thing = 'yar'
   }
 
-  bar() {
-    return Promise.resolve(this._thing);
+  bar () {
+    return Promise.resolve(this._thing)
   }
 }
 
-module.exports = Foo;
+module.exports = Foo

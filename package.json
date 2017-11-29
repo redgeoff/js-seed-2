@@ -16,8 +16,8 @@
   "scripts": {
     "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "eslint test src",
-    "node-test": "mocha node.js",
-    "node-full-test": "nyc mocha node.js",
+    "node-test": "mocha test/node.js",
+    "node-full-test": "nyc mocha test/node.js",
     "test": "npm run lint && npm run node-full-test"
   },
   "devDependencies": {
