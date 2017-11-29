@@ -1,5 +1,6 @@
 'use strict'
 
+import 'babel-polyfill'
 import Foo from '../src/foo'
 
 describe('node and browser', () => {
