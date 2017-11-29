@@ -1,0 +1,53 @@
+{
+  "name": "js-seed-2",
+  "version": "0.0.1",
+  "description": "Seed your JS project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/redgeoff/js-seed-2"
+  },
+  "keywords": ["js", "seed"],
+  "author": "Geoffrey Cox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redgeoff/js-seed-2/issues"
+  },
+  "scripts": {
+    "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
+    "lint": "eslint test src",
+    "node-test": "mocha node.js",
+    "node-full-test": "nyc mocha node.js",
+    "test": "npm run lint && npm run node-full-test"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "chai": "^4.1.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^4.8.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.0",
+    "nyc": "^11.2.1",
+    "prettier-eslint-cli": "^4.4.0"
+  },
+  "greenkeeper": {
+    "ignore": ["chai-as-promised"]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "reporter": ["lcov", "text-summary"],
+    "cache": true,
+    "all": true,
+    "include": ["src/**/*.js"],
+    "report-dir": "./cache/coverage/node"
+  }
+}

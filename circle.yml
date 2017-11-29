@@ -1,0 +1,24 @@
+# Doesn't actually work!
+# node:
+#  version: 8.1.4
+
+# TODO: create env for configuring node version
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - nvm install 8.1.4
+    - nvm use 8.1.4 && npm install -g npm
+
+  override:
+    - nvm use 8.1.4 && npm install
+
+test:
+  pre:
+    - nvm use 8.1.4 && npm run lint
+
+  override:
+    - nvm use 8.1.4 && npm run node-full-test
