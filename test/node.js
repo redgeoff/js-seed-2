@@ -1,5 +1,3 @@
-'use strict'
-
 import './chai'
 import './node-and-browser'
 import Foo from '../src/foo'

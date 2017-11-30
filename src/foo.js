@@ -1,5 +1,3 @@
-'use strict'
-
 class Foo {
   constructor () {
     this._thing = 'yar'
