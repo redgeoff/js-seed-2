@@ -16,9 +16,9 @@
   "scripts": {
     "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "eslint test src",
-    "transpile": "babel src -d lib",
-    "node-test": "mocha --require babel-core/register test/node.js",
-    "node-full-test": "cross-env NODE_ENV=test nyc mocha test/node.js",
+    "compile": "babel src -d lib",
+    "node-test": "npm run compile && mocha --require babel-core/register test/node.js",
+    "node-full-test": "npm run compile && cross-env NODE_ENV=test nyc mocha test/node.js",
     "test": "npm run lint && npm run node-full-test"
   },
   "devDependencies": {
