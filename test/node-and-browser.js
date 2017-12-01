@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import Foo from '../src/foo'
+import Foo from '../src'
 
 describe('node and browser', () => {
   it('should test in both node and the browser', async () => {

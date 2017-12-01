@@ -16,18 +16,21 @@
   "scripts": {
     "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "eslint test src",
-    "transpile": "babel src -d lib && babel test -d test-lib",
-    "node-test": "mocha test-lib/node.js",
-    "node-full-test": "nyc mocha test-lib/node.js",
+    "transpile": "babel src -d lib",
+    "node-test": "mocha --require babel-core/register test/node.js",
+    "node-full-test": "cross-env NODE_ENV=test nyc mocha test/node.js",
     "test": "npm run lint && npm run node-full-test"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.1",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "chai-as-promised": "^6.0.0",
+    "cross-env": "^5.1.1",
     "eslint": "^4.8.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -35,8 +38,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "istanbul": "^0.4.5",
-    "mocha": "^4.0.0",
-    "nyc": "^11.2.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
     "prettier-eslint-cli": "^4.4.0"
   },
   "greenkeeper": {
@@ -48,10 +51,13 @@
     "statements": 100,
     "functions": 100,
     "branches": 100,
+    "require": ["babel-register"],
     "reporter": ["lcov", "text-summary"],
     "cache": true,
     "all": true,
     "include": ["src/**/*.js"],
-    "report-dir": "./cache/coverage/node"
+    "report-dir": "./cache/coverage/node",
+    "sourceMap": false,
+    "instrument": false
   }
 }
