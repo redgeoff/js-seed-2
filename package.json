@@ -17,8 +17,18 @@
     "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "eslint test src",
     "compile": "babel src -d lib",
+    "compile-test": "babel src -d cache/src && babel test -d cache/test",
     "node-test": "npm run compile && mocha --require babel-core/register test/node.js",
     "node-full-test": "npm run compile && cross-env NODE_ENV=test nyc mocha test/node.js",
+    "browser-server":
+      "node_modules/gofur/scripts/browser/serve.js -c cache -t cache/test/browser.js",
+    "browser-test": "node_modules/gofur/scripts/browser/test.js -c cache -t cache/test/browser.js",
+    "browser-test-firefox":
+      "node_modules/gofur/scripts/browser/test.js -c cache -t cache/test/browser.js -b selenium:firefox",
+    "browser-test-chrome":
+      "node_modules/gofur/scripts/browser/test.js -c cache -t cache/test/browser.js -b selenium:chrome",
+    "browser-test-phantomjs":
+      "node_modules/gofur/scripts/browser/test.js -c cache -t cache/test/browser.js -b selenium:phantomjs",
     "test": "npm run lint && npm run node-full-test"
   },
   "devDependencies": {
@@ -37,6 +47,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "gofur": "0.0.9",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "nyc": "^11.3.0",
