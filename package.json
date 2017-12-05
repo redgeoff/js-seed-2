@@ -17,8 +17,21 @@
     "beautify": "prettier-eslint --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "eslint test src",
     "compile": "babel src -d lib",
+    "compile-test": "babel src -d cache/compiled/src && babel test -d cache/compiled/test",
     "node-test": "npm run compile && mocha --require babel-core/register test/node.js",
     "node-full-test": "npm run compile && cross-env NODE_ENV=test nyc mocha test/node.js",
+    "browser-server":
+      "npm run compile-test && node_modules/gofur/scripts/browser/serve.js -c cache -t cache/compiled/test/browser.js",
+    "browser-test":
+      "npm run compile-test && node_modules/gofur/scripts/browser/test.js -c cache -t cache/compiled/test/browser.js",
+    "browser-test-firefox":
+      "npm run compile-test && node_modules/gofur/scripts/browser/test.js -c cache -t cache/compiled/test/browser.js -b selenium:firefox",
+    "browser-test-chrome":
+      "npm run compile-test && node_modules/gofur/scripts/browser/test.js -c cache -t cache/compiled/test/browser.js -b selenium:chrome",
+    "browser-test-phantomjs":
+      "npm run compile-test && node_modules/gofur/scripts/browser/test.js -c cache -t cache/compiled/test/browser.js -b selenium:phantomjs",
+    "browser-test-phantomjs":
+      "npm run compile-test && node_modules/gofur/scripts/browser/test.js -c cache -t cache/compiled/test/browser.js -b selenium:phantomjs",
     "test": "npm run lint && npm run node-full-test"
   },
   "devDependencies": {
@@ -37,6 +50,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "gofur": "0.0.9",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "nyc": "^11.3.0",
