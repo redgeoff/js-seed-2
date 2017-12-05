@@ -4,4 +4,4 @@ Seed your JS project
 
 ## [Testing](TESTING.md)
 
-## [Transpiling](TRANSPILING.md)
+## [Compiling](COMPILING.md)
