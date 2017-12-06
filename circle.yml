@@ -5,21 +5,24 @@
 # TODO: create env for configuring node version
 
 machine:
+  environment:
+    NODE_VERSION: 8.1.4
   services:
     - docker
 
 dependencies:
   pre:
-    - nvm install 8.1.4
-    - nvm use 8.1.4 && npm install -g npm
+    - nvm install $NODE_VERSION
+    - nvm use $NODE_VERSION && npm install -g npm
 
   override:
-    - nvm use 8.1.4 && npm install
+    - nvm use $NODE_VERSION && npm install
 
 test:
   pre:
-    - nvm use 8.1.4 && npm run assert-compiled
-    - nvm use 8.1.4 && npm run lint
+    - nvm use $NODE_VERSION && npm run assert-compiled
+    - nvm use $NODE_VERSION && npm run lint
 
   override:
-    - nvm use 8.1.4 && npm run node-full-test
+    - nvm use $NODE_VERSION && npm run node-full-test
+    - nvm use $NODE_VERSION && npm run browser-test-phantomjs
