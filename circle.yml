@@ -2,8 +2,6 @@
 # node:
 #  version: 8.1.4
 
-# TODO: create env for configuring node version
-
 machine:
   environment:
     NODE_VERSION: 8.1.4
