@@ -74,7 +74,7 @@
     "require": ["babel-register"],
     "reporter": ["lcov", "text-summary"],
     "cache": true,
-    "all": true,
+    "all": false,
     "include": ["src/**/*.js"],
     "report-dir": "./cache/coverage/node",
     "sourceMap": false,
