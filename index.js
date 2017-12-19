@@ -1,5 +1,7 @@
 'use strict';
 
-import lib from './lib';
+// NOTE: this file must be ES5
+
+var lib = require('./lib')
 
 module.exports = lib;
