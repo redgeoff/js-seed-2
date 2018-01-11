@@ -1,9 +1,9 @@
 class Foo {
-  constructor () {
+  constructor() {
     this._thing = 'yar'
   }
 
-  bar () {
+  bar() {
     return Promise.resolve(this._thing)
   }
 }
