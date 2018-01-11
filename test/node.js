@@ -3,7 +3,7 @@ import './node-and-browser'
 import Foo from '../src'
 
 describe('node', () => {
-  it('should test only in node', async () => {
+  it('should test only in node', async() => {
     // TODO: insert tests that can only be tested in node
     let foo = new Foo()
     let thing = await foo.bar()
